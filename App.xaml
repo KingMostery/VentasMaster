@@ -11,9 +11,22 @@
                                          SecondaryColor="Lime" />  
            
             
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />  
-              
-        </ResourceDictionary.MergedDictionaries>  
-    </ResourceDictionary>  
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PasswordBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
+               
+           
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="MaterialDesignFloatingHintPasswordBox"
+       TargetType="PasswordBox"
+       BasedOn="{StaticResource MaterialDesignOutlinedPasswordBox}">
+                <Setter Property="materialDesign:HintAssist.IsFloating" Value="True"/>
+                <Setter Property="materialDesign:HintAssist.FloatingScale" Value="0.8"/>
+            </Style>
+
+        </ResourceDictionary>  
 </Application.Resources>  
 </Application>
