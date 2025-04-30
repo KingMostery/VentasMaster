@@ -1,0 +1,88 @@
+﻿<Window x:Class="MasterVentas.Views.DashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MasterVentas – Menú Principal"
+        WindowStartupLocation="CenterScreen"
+        Width="1000" Height="650"
+        WindowStyle="None"
+        Background="White">
+
+    <Grid>
+        <!-- Columnas: Drawer + Contenido -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Barra superior -->
+        <Border Background="#07BF96" Height="80" Grid.ColumnSpan="2" Margin="0,5,0,565">
+            <TextBlock Text="MasterVentas" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Left" Margin="500,0,0,0"/>
+        </Border>
+
+        <!-- Navigation Drawer -->
+        <Border Background="#2A2D2E" Grid.Column="0" Margin="0,80,0,0">
+            <StackPanel>
+                <!-- Info Usuario -->
+                <TextBlock Text="Usuario" 
+                           FontSize="18" 
+                           FontWeight="SemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,20,0,5"/>
+                <TextBlock x:Name="LblUsuario" 
+                           Text="—" 
+                           FontSize="14" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20"/>
+
+                <!-- Botones de Módulo -->
+                <Button Name="BtnFacturar" Margin="10,5" Height="50" Background="Transparent" BorderThickness="0" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="FileDocument" Foreground="White" Width="24" Height="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Facturar" Foreground="White" FontSize="16" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="BtnProductos" Margin="10,5" Height="50" Background="Transparent" BorderThickness="0" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Basket" Foreground="White" Width="24" Height="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Productos" Foreground="White" FontSize="16" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="BtnReportes" Margin="10,5" Height="50" Background="Transparent" BorderThickness="0" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ChartLine" Foreground="White" Width="24" Height="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Reportes" Foreground="White" FontSize="16" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="BtnConfig" Margin="10,5" Height="50" Background="Transparent" BorderThickness="0" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Configuración" Foreground="White" FontSize="16" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <!-- Área de contenido -->
+        <Grid Grid.Column="1" Margin="20,80,20,20">
+            <TextBlock Text="Bienvenido al sistema" 
+                       FontSize="28" 
+                       FontWeight="SemiBold" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" Margin="197,50,0,0" RenderTransformOrigin="0.43,0.618"/>
+        </Grid>
+    </Grid>
+</Window>
+
+
+

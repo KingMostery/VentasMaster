@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MasterVentas.Controllers;
+using MasterVentas.Views;
 
 namespace MasterVentas
 {
@@ -64,16 +65,9 @@ namespace MasterVentas
 
             if (usuario != null)
             {
-                MessageBox.Show($"Bienvenido {usuario.Username} ({usuario.Rol})");
-
-                if (usuario.Rol == "Administrador")
-                {
-                    MessageBox.Show("Acceso como Administrador");
-                }
-                else if (usuario.Rol == "Cajero")
-                {
-                    MessageBox.Show("Acceso como Cajero");
-                }
+                var dashboard = new DashboardWindow(user, usuario.Rol);
+                dashboard.Show();
+                this.Close();
             }
             else
             {
