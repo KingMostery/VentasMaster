@@ -33,9 +33,9 @@
             <Grid>
                 <!--Title-->
                 <StackPanel Margin="0 120 0 0" VerticalAlignment="Top">
-                    <TextBlock Text="Sign up" FontSize="46" FontWeight="Light" Foreground="#ffffff" TextAlignment="Center"/>
-                    <TextBlock Text="to use all features" FontWeight="Light" FontSize="16" Foreground="#D1F2EB" TextAlignment="Center" Margin="0 15 0 3"/>
-                    <TextBlock Text="of the application" FontWeight="Light" FontSize="16" Foreground="#D1F2EB" TextAlignment="Center"/>
+                    <TextBlock Text="MasterVentas" FontSize="46" FontWeight="Light" Foreground="#ffffff" TextAlignment="Center"/>
+                    <TextBlock Text="by: Andres Durango" FontWeight="Light" FontSize="16" Foreground="#D1F2EB" TextAlignment="Center" Margin="0 15 0 3"/>
+                    <TextBlock Text="Yenni" FontWeight="Light" FontSize="16" Foreground="#D1F2EB" TextAlignment="Center"/>
                 </StackPanel>
 
                 <!--Ellipses-->
@@ -86,26 +86,55 @@
         <Border Grid.Column="1" Background="#ffffff" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown">
             <Grid>
                 <!--Close Icon-->
-                <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3"/>
+                <Button 
+    Click="CloseButton_Click" 
+    Background="Transparent" 
+    BorderThickness="0" 
+    Width="30" 
+    Height="30"
+    HorizontalAlignment="Right" 
+    VerticalAlignment="Top"
+    Margin="0 13 14 0"
+    ToolTip="Cerrar">
+                    <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Opacity="0.3"/>
+                </Button>
 
                 <!--Inputs-->
-                <StackPanel VerticalAlignment="Center" Margin="75 0">
-                    <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Username" Text="John.Doe_am" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Email" Text="JohnDoe@email.com" Margin="0 27 0 27" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <PasswordBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Password" Password="1234567890" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                    <PasswordBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Repeat Password" Password="1234567890" Margin="0 27 0 0" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="318" Height="267">
+                    <TextBox x:Name="UsernameTextBox"
+    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+    materialDesign:HintAssist.Hint="Username"
+    BorderThickness="0 0 0 1"
+    BorderBrush="#C5C8CC"
+    Background="Transparent"
+    Foreground="Black"
+    CaretBrush="Black"
+    FontSize="16"
+    Height="82"
+    Margin="0 0 0 20"/>
 
-                    <CheckBox Margin="0 40 0 20" FontSize="13">
-                        <TextBlock>
-                            <Run Foreground="#b6b6b6">By signing up I agree with</Run>
-                            <Run Foreground="#07BF96">terms and conditions</Run>
-                        </TextBlock>
-                    </CheckBox>
+                    <PasswordBox x:Name="PasswordBox"
+    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+    materialDesign:HintAssist.Hint="Contraseña"
+    BorderThickness="0 0 0 1"
+    BorderBrush="#C5C8CC"
+    Background="Transparent"
+    Foreground="Black"
+    CaretBrush="Black"
+    FontSize="16"
+    Height="96"
+    Margin="0 0 0 20"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Sign up" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120"/>
-                        <Button Content="or Login" materialDesign:ButtonAssist.CornerRadius="22" FontSize="16" Height="45" Width="120" Margin="5 0 0 0" Style="{StaticResource MaterialDesignFlatButton}"/>
-                    </StackPanel>
+                    <Button 
+    Content="Ingresar" 
+    Background="#05B790" 
+    Foreground="#ffffff" 
+    FontSize="18" 
+    materialDesign:ButtonAssist.CornerRadius="22" 
+    Height="45" 
+    Width="146"
+    IsDefault="True" 
+    Click="LoginButton_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

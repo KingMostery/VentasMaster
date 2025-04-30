@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MasterVentas.Controllers;
 
 namespace MasterVentas
 {
@@ -25,12 +26,64 @@ namespace MasterVentas
             InitializeComponent();
         }
 
+        private void Ingresar_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            // Aquí puedes hacer la validación, por ejemplo:
+            if (username == "admin" && password == "123456")
+            {
+                MessageBox.Show("Ingreso exitoso");
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+        }
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Aquí puedes poner lógica si necesitas reaccionar a cambios de texto
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string user = UsernameTextBox.Text.Trim();  // Obtener el usuario
+            string pass = PasswordBox.Password.Trim(); // Obtener la contraseña
+
+            var ctrl = new UsuarioController();
+            var usuario = ctrl.ValidarUsuario(user, pass); // Validar en la base de datos
+
+            if (usuario != null)
+            {
+                MessageBox.Show($"Bienvenido {usuario.Username} ({usuario.Rol})");
+
+                if (usuario.Rol == "Administrador")
+                {
+                    MessageBox.Show("Acceso como Administrador");
+                }
+                else if (usuario.Rol == "Cajero")
+                {
+                    MessageBox.Show("Acceso como Cajero");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.");
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
