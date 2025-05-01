@@ -1,6 +1,7 @@
 ﻿using MasterVentas.Views;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 
 
@@ -19,15 +20,24 @@ namespace MasterVentas.Views
             // Cargar el UserControl de creación de usuario
             var crearUsuarioControl = new CreateUserControl();
 
-            // Opcional: Abrir en una ventana nueva
+            // Crear la ventana sin chrome del sistema
             var ventana = new Window
             {
-                Title = "Nuevo Usuario",
                 Content = crearUsuarioControl,
-                Height = 400,
-                Width = 400,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
+                Height = 800,
+                Width = 800,
+
+                // Aquí están las claves para esconder bordes y barra de título:
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true,
+                Background = Brushes.Transparent,
+                ResizeMode = ResizeMode.NoResize,
+                ShowInTaskbar = false,
+
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Owner = Window.GetWindow(this) // para que sea modal de la ventana actual
             };
+
             ventana.ShowDialog();
         }
       
