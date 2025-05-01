@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using MasterVentas.Views;
+using System.Windows;
+
+
 
 namespace MasterVentas.Views
 {
@@ -17,6 +20,12 @@ namespace MasterVentas.Views
         public DashboardWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnConfig_Click(object sender, RoutedEventArgs e)
+        {
+            // Al hacer clic, cargamos el UserControl de Configuraciones
+            ModuleHost.Content = new ConfiguracionesControl();
         }
     }
 }

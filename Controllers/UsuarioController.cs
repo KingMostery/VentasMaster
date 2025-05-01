@@ -31,6 +31,13 @@ namespace MasterVentas.Controllers
             var usuario = _usuarios.Find(u => u.Username == username && u.Password == passwordIngresado).FirstOrDefault();
             return usuario;
         }
+
+        public void InsertUsuario(Usuario nuevo)
+        {
+            _usuarios.InsertOne(nuevo);
+        }
+
+
     }
 }
 

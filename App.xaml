@@ -1,32 +1,36 @@
-﻿<Application x:Class="MasterVentas.App"  
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
-        StartupUri="MainWindow.xaml">  
-<Application.Resources>  
-    <ResourceDictionary>  
-        <ResourceDictionary.MergedDictionaries>  
-            <materialDesign:BundledTheme BaseTheme="Light"  
-                                         PrimaryColor="Teal"  
-                                         SecondaryColor="Lime" />  
-           
-            
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
+﻿<Application x:Class="MasterVentas.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Tema principal de Material Design -->
+                <materialDesign:BundledTheme BaseTheme="Light"
+                                             PrimaryColor="Teal"
+                                             SecondaryColor="Lime" />
+
+                <!-- Colores y temas recomendados de Material Design -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PasswordBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
-               
-           
             </ResourceDictionary.MergedDictionaries>
 
+            <!-- Estilo personalizado para PasswordBox flotante -->
             <Style x:Key="MaterialDesignFloatingHintPasswordBox"
-       TargetType="PasswordBox"
-       BasedOn="{StaticResource MaterialDesignOutlinedPasswordBox}">
+                   TargetType="PasswordBox"
+                   BasedOn="{StaticResource MaterialDesignOutlinedPasswordBox}">
                 <Setter Property="materialDesign:HintAssist.IsFloating" Value="True"/>
                 <Setter Property="materialDesign:HintAssist.FloatingScale" Value="0.8"/>
             </Style>
 
-        </ResourceDictionary>  
-</Application.Resources>  
+            <!-- Estilo personalizado para ComboBox flotante -->
+            <Style TargetType="ComboBox">
+                <Setter Property="materialDesign:HintAssist.IsFloating" Value="True"/>
+                <Setter Property="materialDesign:HintAssist.FloatingScale" Value="0.8"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
