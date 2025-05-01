@@ -29,15 +29,13 @@ namespace MasterVentas.Views
             string password = TxtPassword.Password;
             string rol = (CmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
-            // Validar que el username no tenga espacios en blanco
             if (string.IsNullOrWhiteSpace(username) || username.Contains(" "))
             {
                 MessageBox.Show("El nombre de usuario no puede contener espacios.");
                 return;
             }
 
-            // Validar que el username solo contenga caracteres permitidos (letras, números, puntos, guiones, etc.)
-            var usernamePattern = @"^[a-zA-Z0-9.-]+$";  // Permite letras, números, puntos y guiones
+            var usernamePattern = @"^[a-zA-Z0-9.-]+$";
             if (!Regex.IsMatch(username, usernamePattern))
             {
                 MessageBox.Show("El nombre de usuario solo puede contener letras, números, puntos y guiones.");
@@ -59,15 +57,21 @@ namespace MasterVentas.Views
                 Rol = rol
             };
 
-            usuarioController.InsertUsuario(nuevoUsuario);
+            // Intenta insertar
+            bool creado = usuarioController.InsertUsuario(nuevoUsuario);
+
+            if (!creado)
+            {
+                MessageBox.Show("Ya existe un usuario con ese nombre.");
+                return;
+            }
+
             MessageBox.Show("Usuario creado exitosamente");
 
-            // Espera 1 segundos sin bloquear la UI
             await Task.Delay(TimeSpan.FromSeconds(1));
-
-            // Cierra la ventana que contiene el UserControl
             Window.GetWindow(this)?.Close();
         }
+
 
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

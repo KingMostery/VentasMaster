@@ -65,7 +65,7 @@ namespace MasterVentas
 
             if (usuario != null)
             {
-                var dashboard = new DashboardWindow(user, usuario.Rol);
+                var dashboard = new DashboardWindow(usuario.Nombre, usuario.Rol);
                 dashboard.Show();
                 this.Close();
             }

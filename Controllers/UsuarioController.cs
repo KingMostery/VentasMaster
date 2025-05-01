@@ -32,11 +32,19 @@ namespace MasterVentas.Controllers
             return usuario;
         }
 
-        public void InsertUsuario(Usuario nuevo)
+        public bool InsertUsuario(Usuario nuevo)
         {
-            _usuarios.InsertOne(nuevo);
-        }
+            // Verificar si ya existe un usuario con el mismo nombre
+            var existente = _usuarios.Find(u => u.Username == nuevo.Username).FirstOrDefault();
 
+            if (existente != null)
+            {
+                return false; // Ya existe un usuario con ese nombre
+            }
+
+            _usuarios.InsertOne(nuevo);
+            return true;
+        }
 
     }
 }
