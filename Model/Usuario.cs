@@ -20,6 +20,9 @@ namespace MasterVentas.ModelViews.User
         [BsonElement("password")]
         public string Password { get; set; }
 
+        [BsonElement("nombre")]
+        public string Nombre { get; set; }
+
         [BsonElement("rol")]
         public string Rol { get; set; }  // "Administrador" o "Cajero"
     }

@@ -25,6 +25,7 @@ namespace MasterVentas.Views
         private async void BtnCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
             string username = TxtUsername.Text;
+            string usernamefull = TxtUsernameFull.Text;
             string password = TxtPassword.Password;
             string rol = (CmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
@@ -54,6 +55,7 @@ namespace MasterVentas.Views
             {
                 Username = username,
                 Password = password,
+                Nombre = usernamefull,
                 Rol = rol
             };
 

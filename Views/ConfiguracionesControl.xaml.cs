@@ -24,7 +24,7 @@ namespace MasterVentas.Views
             var ventana = new Window
             {
                 Content = crearUsuarioControl,
-                Height = 800,
+                Height = 990,
                 Width = 800,
 
                 // Aquí están las claves para esconder bordes y barra de título:
