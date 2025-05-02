@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MasterVentas.Connection;
 using MasterVentas.ModelViews.User;
 using MongoDB.Driver;
@@ -44,6 +41,29 @@ namespace MasterVentas.Controllers
 
             _usuarios.InsertOne(nuevo);
             return true;
+        }
+
+        /// <summary>
+        /// Actualiza la informacion del usuario seleccionado
+        /// </summary>
+        public bool UpdateUsuario(Usuario usuario)
+        {
+            var filter = Builders<Usuario>.Filter.Eq(u => u.Id, usuario.Id);
+            var update = Builders<Usuario>.Update
+                .Set(u => u.Nombre, usuario.Nombre)
+                .Set(u => u.Rol, usuario.Rol)
+                .Set(u => u.Password,usuario.Password);
+
+            var result = _usuarios.UpdateOne(filter, update);
+            return result.ModifiedCount > 0;
+        }
+
+        /// <summary>
+        /// Consulta todos los usuario en el sistema
+        /// </summary>
+        public List<Usuario> GetAllUsuarios()
+        {
+            return _usuarios.Find(_ => true).ToList();
         }
 
     }

@@ -1,0 +1,70 @@
+<UserControl x:Class="MasterVentas.Views.EditUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Background="Transparent"
+             Height="547" Width="521">
+
+    <Grid Margin="20">
+        <Border Padding="30"
+                Background="White"
+                CornerRadius="12"
+                Width="458"
+                HorizontalAlignment="Center" Margin="0,0,0,-18">
+            <Border.Effect>
+                <DropShadowEffect Color="#333" BlurRadius="15" Opacity="0.3" ShadowDepth="5"/>
+            </Border.Effect>
+
+            <Grid>
+                <StackPanel>
+                    <TextBlock Text="Editar Usuario"
+                               FontSize="26"
+                               FontWeight="Bold"
+                               Foreground="#2C3E50"
+                               Margin="0,0,0,25"/>
+
+					<ComboBox x:Name="CmbUsuarios"
+			materialDesign:HintAssist.Hint="Seleccionar Usuario"
+			Margin="0,0,0,15"
+			DisplayMemberPath="Username"
+			SelectionChanged="CmbUsuarios_SelectionChanged"/>
+					
+					
+
+                    <TextBox x:Name="TxtUsernameFull"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:HintAssist.Hint="Nombre Completo"
+                             Margin="0,0,0,15"/>
+
+
+					<PasswordBox x:Name="TxtPassword"
+								Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+								materialDesign:HintAssist.Hint="Password"
+								Margin="0,0,0,15"/>
+					
+					<ComboBox x:Name="CmbRol"
+                              materialDesign:HintAssist.Hint="Rol"
+                              Margin="0,0,0,25">
+                        <ComboBoxItem Content="Administrador"/>
+                        <ComboBoxItem Content="Cajero"/>
+                    </ComboBox>
+
+                    <Button Content="Guardar Cambios"
+                            Height="45"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            Click="BtnGuardarCambios_Click"/>
+                </StackPanel>
+
+                <Button Content="x"
+                        Width="30" Height="30"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="14" FontWeight="Bold"
+                        Foreground="#888"
+                        Cursor="Hand"
+                        Click="CloseButton_Click"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
