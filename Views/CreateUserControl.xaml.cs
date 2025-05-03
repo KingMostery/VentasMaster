@@ -54,7 +54,8 @@ namespace MasterVentas.Views
                 Username = username,
                 Password = password,
                 Nombre = usernamefull,
-                Rol = rol
+                Rol = rol,
+                Activo = true
             };
 
             // Intenta insertar

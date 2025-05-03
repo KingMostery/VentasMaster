@@ -20,5 +20,11 @@ namespace MasterVentas.ModelViews.User
 
         [BsonElement("rol")]
         public string Rol { get; set; }  // "Administrador" o "Cajero"
+
+
+        [BsonElement("activo")]
+        public bool Activo { get; set; }
+
+
     }
 }
