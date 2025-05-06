@@ -41,6 +41,7 @@ namespace MasterVentas.Views
                         break;
                     }
                 }
+                ChkActivo.IsChecked = seleccionado.Activo;
             }
         }
 
@@ -56,6 +57,8 @@ namespace MasterVentas.Views
             string nombre = TxtUsernameFull.Text;
             string rol = (CmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
             string nuevaContraseña = TxtPassword.Password;
+            bool estaActivo = ChkActivo.IsChecked == true;
+
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(rol))
             {
@@ -66,6 +69,7 @@ namespace MasterVentas.Views
             usuarioSeleccionado.Nombre = nombre;
             usuarioSeleccionado.Rol = rol;
             usuarioSeleccionado.Password = nuevaContraseña;
+            usuarioSeleccionado.Activo = estaActivo;
 
             bool actualizado = _controller.UpdateUsuario(usuarioSeleccionado);
 

@@ -52,7 +52,8 @@ namespace MasterVentas.Controllers
             var update = Builders<Usuario>.Update
                 .Set(u => u.Nombre, usuario.Nombre)
                 .Set(u => u.Rol, usuario.Rol)
-                .Set(u => u.Password,usuario.Password);
+                .Set(u => u.Password,usuario.Password)
+                .Set(u => u.Activo,usuario.Activo);
 
             var result = _usuarios.UpdateOne(filter, update);
             return result.ModifiedCount > 0;

@@ -49,6 +49,14 @@
                         <ComboBoxItem Content="Cajero"/>
                     </ComboBox>
 
+                    <CheckBox x:Name="ChkActivo"
+          Content="Usuario Activo"
+          Margin="0,0,0,25"
+          IsChecked="True"
+          VerticalAlignment="Center"
+          FontSize="14"
+          Foreground="#2C3E50"/>
+
                     <Button Content="Guardar Cambios"
                             Height="45"
                             Style="{StaticResource MaterialDesignRaisedButton}"

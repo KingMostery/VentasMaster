@@ -10,6 +10,7 @@ using MasterVentas.ModelViews.User;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Text.RegularExpressions;
+using System.Windows.Documents;
 
 namespace MasterVentas.Views
 {
@@ -28,6 +29,8 @@ namespace MasterVentas.Views
             string usernamefull = TxtUsernameFull.Text;
             string password = TxtPassword.Password;
             string rol = (CmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
+           
+
 
             if (string.IsNullOrWhiteSpace(username) || username.Contains(" "))
             {
