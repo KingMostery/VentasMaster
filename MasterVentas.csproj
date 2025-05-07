@@ -158,8 +158,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Model\Categorias.cs" />
     <Compile Include="Views\ConfiguracionesControl.xaml.cs">
       <DependentUpon>ConfiguracionesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateCategoriasControl.xaml.cs">
+      <DependentUpon>CreateCategoriasControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreateUserControl.xaml.cs">
       <DependentUpon>CreateUserControl.xaml</DependentUpon>
@@ -187,6 +192,9 @@
     <Page Include="Views\ConfiguracionesControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreateCategoriasControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreateUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>

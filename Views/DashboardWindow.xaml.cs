@@ -14,6 +14,7 @@ namespace MasterVentas.Views
             LblUsuario.Text = $"{usuario} ({rol})";
         }
         private void CerrarAplicacion_Click(object sender, RoutedEventArgs e)
+        
         {
             Application.Current.Shutdown();
         }

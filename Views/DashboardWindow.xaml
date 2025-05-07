@@ -28,7 +28,7 @@
             <StackPanel Margin="10">
                 <TextBlock Text="Usuario" FontSize="20" Foreground="White" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="LblUsuario" Text="—" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-
+                
                 <Button Name="BtnConfig" Click="BtnConfig_Click" Margin="0,5" Height="45" Background="Transparent" BorderThickness="0">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24"/>

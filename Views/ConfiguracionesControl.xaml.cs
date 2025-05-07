@@ -41,6 +41,26 @@ namespace MasterVentas.Views
             ventana.ShowDialog();
         }
 
+        private void CrearCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            var crearCategoriasControl = new CreateCategoriasControl();
+            var ventana = new Window
+            {
+                Content = crearCategoriasControl,
+                Height = 990,
+                Width = 800,
+                // Aquí están las claves para esconder bordes y barra de título:
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true,
+                Background = Brushes.Transparent,
+                ResizeMode = ResizeMode.NoResize,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Owner = Window.GetWindow(this) // para que sea modal de la ventana actual
+            };
+            ventana.ShowDialog();
+        }
+
         private void Editsuario_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             // Cargar el UserControl de creación de usuario
@@ -78,9 +98,6 @@ namespace MasterVentas.Views
             MessageBox.Show("Aquí abrirías el formulario para eliminar usuario");
         }
 
-        private void CrearCategoria_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Aquí abrirías el formulario para crear categoría");
-        }
+       
     }
 }
