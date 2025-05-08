@@ -7,25 +7,34 @@ namespace MasterVentas.Views
 {
     public partial class DashboardWindow : Window
     {
+        private string _rol;
+
         public DashboardWindow(string usuario, string rol)
-            : this()  // Llama al constructor sin parámetros para InitializeComponent
         {
-           
+            _rol = rol;
+
+            InitializeComponent();
+
             LblUsuario.Text = $"{usuario} ({rol})";
+
+            ConfigurarInterfazPorRol();
         }
+
+        private void ConfigurarInterfazPorRol()
+        {
+            if (_rol != "Administrador")
+            {
+                BtnConfig.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void CerrarAplicacion_Click(object sender, RoutedEventArgs e)
-        
         {
             Application.Current.Shutdown();
-        }
-        public DashboardWindow()
-        {
-            InitializeComponent();
         }
 
         private void BtnConfig_Click(object sender, RoutedEventArgs e)
         {
-            // Al hacer clic, cargamos el UserControl de Configuraciones
             ModuleHost.Content = new ConfiguracionesControl();
         }
     }
