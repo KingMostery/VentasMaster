@@ -37,6 +37,11 @@ namespace MasterVentas.Views
         {
             ModuleHost.Content = new ConfiguracionesControl();
         }
+
+        private void BtnProductos_Click(object sender, RoutedEventArgs e)
+        {
+            ModuleHost.Content = new ProductosControl();
+        }
     }
 }
 

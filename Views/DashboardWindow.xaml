@@ -36,6 +36,13 @@
                     </StackPanel>
                 </Button>
 
+                <Button Name="BtnProductos" Click="BtnProductos_Click" Margin="0,5" Height="45" Background="Transparent" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24"/>
+                        <TextBlock Text="Productos" Foreground="White" FontSize="16" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
                 <!-- aquí otros botones... -->
             </StackPanel>
         </Border>
