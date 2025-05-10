@@ -24,8 +24,13 @@ namespace MasterVentas.Model
         [BsonElement("precio")]
         public decimal Precio { get; set; }
 
-        [BsonElement("categoriaId")]
-        [BsonRepresentation(BsonType.ObjectId)]
+
+        [BsonElement("categoria")]
+        public string Categoria { get; set; }
+        //[BsonElement("categoriaId")]
+        //[BsonRepresentation(BsonType.ObjectId)]
+
+
         public string CategoriaId { get; set; }
 
         [BsonElement("codigoBarras")]

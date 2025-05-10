@@ -14,7 +14,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Boton para crear producto --><!--
+        <!-- Boton para crear producto -->
+        
         <Button Content="Crear Producto"
                 Click="CrearProducto_Click"
                 Width="160"
@@ -22,7 +23,14 @@
                 HorizontalAlignment="Left"
                 Margin="0,0,0,10"
                 Style="{StaticResource MaterialDesignRaisedButton}"
-                Grid.Row="0"/>-->
+                Grid.Row="0"/>
+
+        <Image x:Name="ImgCodigoBarras"
+         Grid.Row="0"
+         HorizontalAlignment="Right"
+         Width="200"
+         Height="80"
+         Margin="0,0,0,10"/>
 
         <!-- Filtros de busqueda -->
         <materialDesign:Card Margin="0,10,0,10" Padding="10" Grid.Row="1">
