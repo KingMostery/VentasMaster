@@ -25,6 +25,15 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Grid.Row="0"/>
 
+        <Button Content="Exportar Productos"
+        Click="ExportarProductos_Click"
+        Width="160"
+        Height="40"
+        HorizontalAlignment="Left"
+        Margin="188,20,0,30"
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        Grid.Row="0"/>
+
         <!-- Imagen codigo de barras -->
         <Image x:Name="ImgCodigoBarras"
                Grid.Row="0"
