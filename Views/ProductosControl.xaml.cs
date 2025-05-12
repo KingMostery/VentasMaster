@@ -112,13 +112,15 @@ namespace MasterVentas.Views
         private void ExportarProductos_Click(object sender, RoutedEventArgs e)
         {
             var productos = _productosController.ObtenerTodos().ToList();
+            var productosFiltrados = productos.Where(p => p.Activo).ToList();
+
             var documento = new Document();
             var seccion = documento.AddSection();
 
             Table tabla = null;
             int contador = 0;
 
-            foreach (var p in productos)
+            foreach (var p in productosFiltrados)
             {
                 // Crear una nueva tabla cada 10 productos
                 if (contador % 10 == 0)
@@ -181,120 +183,7 @@ namespace MasterVentas.Views
         }
 
 
-        //private void ExportarProductos_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var productos = _productosController.ObtenerTodos().ToList();
-        //    var documento = new Document();
-        //    var seccion = documento.AddSection();
-
-        //    foreach (var p in productos)
-        //    {
-        //        // Crear tabla con 3 columnas
-        //        var tabla = seccion.AddTable();
-        //        tabla.Borders.Width = 0.75;
-
-        //        // Definir columnas
-        //        tabla.AddColumn("5cm"); // Nombre
-        //        tabla.AddColumn("3cm"); // Precio
-        //        tabla.AddColumn("4cm"); // Categoría
-
-        //        // Agregar fila de encabezado
-        //        var filaEncabezado = tabla.AddRow();
-        //        filaEncabezado.Shading.Color = Colors.LightGray;
-        //        filaEncabezado.Cells[0].AddParagraph("Nombre");
-        //        filaEncabezado.Cells[1].AddParagraph("Precio");
-
-
-        //        // Agregar fila de datos
-        //        var filaDatos = tabla.AddRow();
-        //        filaDatos.Cells[0].AddParagraph(p.Nombre);
-        //        filaDatos.Cells[1].AddParagraph(p.Precio.ToString("C"));
-
-
-        //        seccion.AddParagraph(); // espacio
-
-        //        // Generar el código de barras
-        //        var barcodeBitmap = MasterVentas.Util.CodeBarGenerador.CrearCodigo128(p.Id.ToString());
-
-        //        // Convertir a base64
-        //        var encoder = new PngBitmapEncoder();
-        //        encoder.Frames.Add(BitmapFrame.Create(barcodeBitmap));
-        //        using (var ms = new MemoryStream())
-        //        {
-        //            encoder.Save(ms);
-        //            ms.Position = 0;
-        //            var imageBase64 = Convert.ToBase64String(ms.ToArray());
-
-        //            // Insertar imagen debajo de la tabla
-        //            var image = seccion.AddImage($"base64:{imageBase64}");
-        //            image.Width = "8cm";
-        //            image.LockAspectRatio = true;
-        //            image.Left = ShapePosition.Center;
-        //        }
-
-        //        // Salto de página por producto
-        //        seccion.AddPageBreak();
-        //    }
-
-        //    // Renderizar y guardar
-        //    var renderer = new PdfDocumentRenderer(true) { Document = documento };
-        //    renderer.RenderDocument();
-
-        //    var rutaPDF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "productos_exportados.pdf");
-        //    renderer.PdfDocument.Save(rutaPDF);
-
-        //    MessageBox.Show($"PDF generado con códigos de barras en:\n{rutaPDF}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-        //}
-        //private void ExportarProductos_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var productos = _productosController.ObtenerTodos().ToList();
-        //    var documento = new Document();
-        //    var seccion = documento.AddSection();
-
-        //    // Se crea el renderer de PDF
-        //    var renderer = new PdfDocumentRenderer(true) { Document = documento };
-        //    renderer.RenderDocument();
-        //    var pdfDocument = renderer.PdfDocument;
-
-        //    // Recorremos todos los productos
-        //    foreach (var p in productos)
-        //    {
-        //        // Añadir detalles del producto
-        //        seccion.AddParagraph($"Producto: {p.Nombre}", "Heading1");
-        //        seccion.AddParagraph($"Precio: {p.Precio}");
-
-        //        // Generar el código de barras
-        //        var barcodeBitmap = MasterVentas.Util.CodeBarGenerador.CrearCodigo128(p.Id.ToString());
-
-        //        // Convertir BitmapSource a System.Drawing.Image
-        //        var encoder = new PngBitmapEncoder();
-        //        encoder.Frames.Add(BitmapFrame.Create(barcodeBitmap));
-        //        using (var ms = new MemoryStream())
-        //        {
-        //            encoder.Save(ms);
-        //            ms.Position = 0;  // Asegurarte de que la posición del MemoryStream esté al principio
-
-        //            // Crear la imagen a partir del MemoryStream
-        //            var image = XImage.FromStream(ms);  // Pasa el MemoryStream directamente
-
-        //            // Dibujar la imagen en el PDF
-        //            var page = pdfDocument.AddPage();
-        //            var gfx = XGraphics.FromPdfPage(page);
-        //            gfx.DrawImage(image, 50, 50, 200, 60); // Ajusta la posición y tamaño según necesites
-        //        }
-
-        //        // Agregar espacio y página nueva por producto
-        //        seccion.AddParagraph();
-        //        seccion.AddPageBreak();
-        //    }
-
-        //    // Guardar el archivo PDF
-        //    var rutaPDF = "productos_exportados.pdf";
-        //    pdfDocument.Save(rutaPDF);
-
-        //    // Mostrar mensaje al usuario
-        //    MessageBox.Show("PDF generado con códigos de barras.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-        //}
+       
 
 
 
