@@ -21,6 +21,16 @@ namespace MasterVentas.Controllers
             _productos = db.GetCollection<Producto>("Productos");
         }
 
+        /// <summary>
+        /// Obtiene todos los productos de la base de datos.
+        /// </summary>
+        /// <returns>Lista de productos.</returns>
+        public List<Producto> ObtenerTodos()
+        {
+            // Devuelve todos los documentos de la colección
+            return _productos.Find(p => true).ToList();
+        }
+
         public bool InsertarProducto(Producto nuevo)
         {
             // Generar siempre el código de barras
@@ -35,19 +45,7 @@ namespace MasterVentas.Controllers
             return true;
         }
 
-        //public bool InsertarProducto(Producto nuevo)
-        //{
-        //    // Generar siempre el código de barras (el usuario no lo asigna)
-        //    nuevo.CodigoBarras = CodeBarGenerador.GenerarCodigo();
-
-        //    // Validar duplicados por nombre
-        //    var existe = _productos.Find(p => p.Nombre == nuevo.Nombre).FirstOrDefault();
-        //    if (existe != null)
-        //        return false;
-
-        //    _productos.InsertOne(nuevo);
-        //    return true;
-        //}
+   
 
 
     }

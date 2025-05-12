@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <UserControl x:Class="MasterVentas.Views.ProductosControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,7 +16,6 @@
         </Grid.RowDefinitions>
 
         <!-- Boton para crear producto -->
-        
         <Button Content="Crear Producto"
                 Click="CrearProducto_Click"
                 Width="160"
@@ -25,12 +25,13 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Grid.Row="0"/>
 
+        <!-- Imagen codigo de barras -->
         <Image x:Name="ImgCodigoBarras"
-         Grid.Row="0"
-         HorizontalAlignment="Right"
-         Width="200"
-         Height="80"
-         Margin="0,0,0,10"/>
+               Grid.Row="0"
+               HorizontalAlignment="Right"
+               Width="200"
+               Height="80"
+               Margin="0,0,0,10"/>
 
         <!-- Filtros de busqueda -->
         <materialDesign:Card Margin="0,10,0,10" Padding="10" Grid.Row="1">
@@ -40,27 +41,35 @@
                         Margin="0">
 
                 <!-- Buscar por nombre -->
-                <TextBox Width="180"
+                <TextBox x:Name="NombreTextBox"
+                         Width="180"
                          Margin="0,0,10,0"
                          materialDesign:HintAssist.Hint="Buscar por nombre"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-                <!-- Buscar por categoria (ComboBox) -->
+                <!-- Buscar por categoria -->
                 <ComboBox x:Name="CategoriaComboBox"
-          Width="180"
-          Margin="0,0,10,0"
-          materialDesign:HintAssist.Hint="Categoria">
+                          Width="180"
+                          Margin="0,0,10,0"
+                          materialDesign:HintAssist.Hint="Categoria">
                     <ComboBoxItem Content="Herramientas"/>
                     <ComboBoxItem Content="Bisuteria"/>
                     <ComboBoxItem Content="Artesanais"/>
                 </ComboBox>
 
-
                 <!-- Buscar por precio -->
-                <TextBox Width="180"
+                <TextBox x:Name="PrecioTextBox"
+                         Width="180"
                          Margin="0,0,10,0"
                          materialDesign:HintAssist.Hint="Buscar por precio"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <!-- Boton limpiar filtros -->
+                <Button Content="Limpiar Filtros"
+                        Width="120"
+                        Margin="10,0,0,0"
+                        Click="LimpiarFiltros_Click"
+                        Style="{StaticResource MaterialDesignOutlinedButton}" />
 
             </StackPanel>
         </materialDesign:Card>
@@ -78,8 +87,8 @@
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
                 <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}" Width="2*" />
                 <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="100" />
-                <DataGridTextColumn Header="Categoria ID" Binding="{Binding CategoriaId}" Width="150" />
-                <DataGridTextColumn Header="Codigo Barras" Binding="{Binding CodigoBarras}" Width="200" />
+                <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}" Width="150" />
+                <DataGridTextColumn Header="CodigoBarras" Binding="{Binding CodigoBarras}" Width="200" />
                 <DataGridCheckBoxColumn Header="Activo" Binding="{Binding Activo}" Width="60" />
             </DataGrid.Columns>
         </DataGrid>
