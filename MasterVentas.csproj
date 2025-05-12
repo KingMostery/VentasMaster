@@ -233,6 +233,9 @@
     <Compile Include="Views\CreateCategoriasControl.xaml.cs">
       <DependentUpon>CreateCategoriasControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreateProductoControl.xaml.cs">
+      <DependentUpon>CreateProductoControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateUserControl.xaml.cs">
       <DependentUpon>CreateUserControl.xaml</DependentUpon>
     </Compile>
@@ -264,6 +267,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CreateCategoriasControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateProductoControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreateUserControl.xaml">

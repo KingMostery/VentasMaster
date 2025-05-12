@@ -16,6 +16,7 @@ using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.Rendering;
 using PdfSharp.Drawing;
 using MigraDoc.DocumentObjectModel.Tables;
+using System.Windows.Media;
 
 
 namespace MasterVentas.Views
@@ -142,7 +143,7 @@ namespace MasterVentas.Views
 
                     // Encabezados
                     var encabezado = tabla.AddRow();
-                    encabezado.Shading.Color = Colors.LightGray;
+                    encabezado.Shading.Color = MigraDoc.DocumentObjectModel.Colors.LightGray;
                     encabezado.Cells[0].AddParagraph("Nombre");
                     encabezado.Cells[1].AddParagraph("Precio");
                     encabezado.Cells[2].AddParagraph("Categoría");
@@ -183,7 +184,32 @@ namespace MasterVentas.Views
         }
 
 
-       
+        private void CrearProducto_Click2(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Cargar el UserControl de creación de usuario
+            var crearPructoControl = new CreateProductoControl();
+
+            // Crear la ventana sin chrome del sistema
+            var ventana = new Window
+            {
+                Content = crearPructoControl,
+                Height = 990,
+                Width = 800,
+
+                // Aquí están las claves para esconder bordes y barra de título:
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true,
+                Background = Brushes.Transparent,
+                ResizeMode = ResizeMode.NoResize,
+                ShowInTaskbar = false,
+
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Owner = Window.GetWindow(this) // para que sea modal de la ventana actual
+            };
+
+            ventana.ShowDialog();
+        }
+
 
 
 

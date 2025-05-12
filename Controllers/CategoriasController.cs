@@ -21,6 +21,11 @@ namespace MasterVentas.Controllers
             _categorias = db.GetCollection<Categorias>("Categorias");
         }
 
+        public List<Categorias> GetCategorias()
+        {
+            // Obtener todas las categorias de la colección activas
+            return _categorias.Find(c => c.Activo).ToList();
+        }
         public bool InsertCategoria(Categorias nuevo)
         {
             // Verificar si ya existe una categoria con el mismo nombre

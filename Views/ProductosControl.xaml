@@ -25,6 +25,15 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Grid.Row="0"/>
 
+        <Button Content="Crear Producto2"
+          Click="CrearProducto_Click2"
+          Width="160"
+          Height="40"
+          HorizontalAlignment="Left"
+          Margin="393,19,0,31"
+          Style="{StaticResource MaterialDesignRaisedButton}"
+          Grid.Row="0"/>
+
         <Button Content="Exportar Productos"
         Click="ExportarProductos_Click"
         Width="160"
