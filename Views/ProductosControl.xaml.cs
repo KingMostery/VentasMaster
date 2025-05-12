@@ -36,8 +36,22 @@ namespace MasterVentas.Views
 
         private void CargarProductos()
         {
-            // Cargar todos los productos
+            // Obtener todos los productos
             todosLosProductos = _productosController.ObtenerTodos();
+
+            // Obtener todas las categorías activas
+            var categoriasController = new CategoriasController();
+            var categorias = categoriasController.GetCategorias();
+
+            // Reemplazar el ID por el nombre solo para mostrar
+            foreach (var producto in todosLosProductos)
+            {
+                var categoria = categorias.FirstOrDefault(c => c.Id == producto.Categoria);
+                if (categoria != null)
+                {
+                    producto.Categoria = categoria.Nombre;
+                }
+            }
 
             // Configurar la vista filtrada
             vistaFiltrada = CollectionViewSource.GetDefaultView(todosLosProductos);
@@ -46,6 +60,7 @@ namespace MasterVentas.Views
             // Asignar ItemsSource
             ProductosDataGrid.ItemsSource = vistaFiltrada;
         }
+
 
         private void ConfigurarFiltros()
         {
