@@ -1,5 +1,4 @@
 
-README - VentasMaster
 Descripción del Proyecto
 VentasMaster es un sistema de gestión de ventas desarrollado en C# con WPF y Material Design. El sistema permite administrar productos, usuarios y categorías, con una interfaz moderna y funcional.
 
@@ -10,21 +9,10 @@ Generación de Códigos de Barras: Creación automática de códigos de barras p
 Exportación a PDF: Generación de reportes de productos en formato PDF
 Interfaz Moderna: Diseño basado en Material Design para una experiencia de usuario mejorada
 Arquitectura
+
 El proyecto sigue una arquitectura de capas:
+![image](https://github.com/user-attachments/assets/f9928aeb-0833-4027-bf2a-e41c8bf61977)
 
-Capa de Datos
-
-Capa de Controladores
-
-Capa de Presentación
-
-Vistas XAML
-
-Controladores
-
-MongoDB Data Access
-
-MongoDB Database
 
 Tecnologías Utilizadas
 Lenguaje: C# (.NET Framework 4.8.1)
