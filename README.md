@@ -11,6 +11,8 @@ Interfaz Moderna: Diseño basado en Material Design para una experiencia de usua
 Arquitectura
 
 El proyecto sigue una arquitectura de capas:
+
+
 ![image](https://github.com/user-attachments/assets/f9928aeb-0833-4027-bf2a-e41c8bf61977)
 
 
